@@ -1,5 +1,4 @@
 ---
-import { propsToFilename } from "astro/assets/utils";
 import { backendMode } from "../config";
 import knuddel2 from "../images/knuddel_2.jpg";
 import type { ShopItem } from "../types";
@@ -67,8 +66,7 @@ const { count = Infinity, addToCart = true } = Astro.props;
             );
         })
     }
-</section>
-
+    
 <style>
     .shop-items {
         display: flex;

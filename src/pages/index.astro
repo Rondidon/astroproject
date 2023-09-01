@@ -4,6 +4,7 @@ import Layout from '../layouts/default.astro';
 import { Image } from 'astro:assets';
 import heroImg from '../images/heroimg.png';
 import type { ImageMetadata } from 'astro';
+import ShopItems from '../components/shop-items.astro';
 ---
 <!-- Hier ist clientseitiges Zeug bzw html -->
 
@@ -23,6 +24,13 @@ import type { ImageMetadata } from 'astro';
 			class={"hero-image"}
 		/>
 
+	</section>
+
+	<section class={"block products"}>
+		<ShopItems count={3} addToCart={false}/>
+		<p class="shop-link">
+			<a href="/shop">Jetzt Plüschknuddel einkaufen</a>
+		</p>
 	</section>
 </Layout>
 

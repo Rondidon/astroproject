@@ -3,7 +3,7 @@ import type { NavItem } from "../types";
 const navItems: NavItem[] = [
     {
         path: '/shop',
-        label: 'Shop'
+        label: 'Plüschknuddel'
     },
     {
         path: '/blog',
@@ -11,7 +11,7 @@ const navItems: NavItem[] = [
     },
     {
         path: '/about',
-        label: 'About'
+        label: 'Impressum'
     }
 ];
 ---
@@ -46,15 +46,15 @@ const navItems: NavItem[] = [
 		<div class="slot-wrapper">
         	<slot/>
 		</div>
-        <footer>
-            <p>
-                <a href="https://www.knuddels.de">COMMUNITY WITH ❤️ SINCE 1999</a>
-                <a href="https://github.com/learnwithjason/astro-frontend-masters/">
-                    lerne Astro bei Frontend Masters
-                </a>
-            </p>
-        </footer>
     </body>
+	<footer>
+		<p>
+			<a href="https://www.knuddels.de">COMMUNITY WITH ❤️ SINCE 1999</a>
+			<a href="https://github.com/learnwithjason/astro-frontend-masters/">
+				lerne Astro bei Frontend Masters
+			</a>
+		</p>
+	</footer>
 </html>
 
 <style is:global>
@@ -77,13 +77,14 @@ const navItems: NavItem[] = [
 			'Segoe UI Symbol';
 		font-size: 18px;
 		line-height: 1.45;
+		display: flex;
+		min-height: 100vh;
 	}
 
 	body {
 		margin: 0;
 		display: flex;
-		width: 100vw;
-		height: 100vh;
+		flex: 1;
 		flex-direction: column;
 	}
 
@@ -158,6 +159,7 @@ const navItems: NavItem[] = [
 	}
 
 	footer {
+
 		font-size: 0.75rem;
 		padding: 3rem 5% 2rem;
 		background: var(--color-gray-100);
