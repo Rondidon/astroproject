@@ -1,0 +1,101 @@
+---
+import { propsToFilename } from "astro/assets/utils";
+import { backendMode } from "../config";
+import knuddel2 from "../images/knuddel_2.jpg";
+import type { ShopItem } from "../types";
+import { AddToCart } from "./add-to-cart";
+import { formatCurrency } from "./utils";
+
+
+const fetchShopItems = async (backendMode: "live" | "local") => {
+    if (backendMode === "live") {
+        const result = await fetch(
+            'https://astro-frontend-masters-api.netlify.app/api/products'
+        ); // TODO: connect shop API with correct Knuddels URL                                                                                                                       
+        if (!result.ok) {
+            console.error(result);
+        }
+        return await result.json();
+    }
+    if (backendMode === "local") {
+        const shopItemsLocal = await import('../data/shop-items.json');
+        return Object.values(shopItemsLocal.default) as ShopItem[];
+    }
+}
+
+const shopItems: ShopItem[] = await fetchShopItems(backendMode);
+
+interface ShopItemsProps {
+    count?: number;
+    addToCart?: boolean;
+}
+
+const { count = Infinity, addToCart = true } = Astro.props;
+---
+
+<section class="shop-items">
+    {
+        shopItems.slice(0,count).map((item: ShopItem) => {
+            const price: number = +item.price;
+            let src = item.image.src;
+            let localSrc: ImageMetadata | undefined;
+            if (src === undefined) {
+                src = "https://via.placeholder.com/250";
+            }
+            if (src === "knuddel_2.jpg") {
+                localSrc = knuddel2 as ImageMetadata;
+            }
+            let alt = item.image.alt;
+            if (alt === undefined) {
+                alt = "Placeholder";
+            }
+
+            return (
+                <div class="shop-item">
+                    {localSrc && 
+                        <img
+                            src={localSrc.src} 
+                            alt={alt} 
+                        />
+                    }
+                    {!localSrc && <img src={src} alt={alt} />}
+                    <h2>{item.title}</h2>
+                    <p>{item.description}</p>
+                    <p>{formatCurrency(parseFloat(item.price))}</p>
+                    {addToCart && <AddToCart item={item} client:only="react"/>}
+                </div>
+            );
+        })
+    }
+</section>
+
+<style>
+    .shop-items {
+        display: flex;
+        gap: 3rem 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+
+    .shop-item {
+        width: 250px;
+    }
+
+    .shop-item img {
+        aspect-ratio: 1;
+        border-radius: 0.125rem;
+        display: block;
+        width: 200px;
+        height: 200px;
+    }
+
+    .shop-item h2 {
+        font-size: 1.125rem;
+        margin: 0.75rem 0 0;
+    }
+
+    .shop-item p {
+        margin: 0.25rem 0 0;
+    } 
+</style>

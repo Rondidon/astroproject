@@ -1,0 +1,1 @@
+export const backendMode: "local" | "live" = "local";

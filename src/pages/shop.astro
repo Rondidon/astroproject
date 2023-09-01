@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/page.astro';
+import ShopItems from '../components/shop-items.astro';
+import { Cart } from '../components/cart';
+---
+
+<Layout>
+    <div class="shop">
+        <h1>Shop</h1>
+        <noscript>
+            <p>
+                JavaScript ist in deinem Browser deaktiviert.<br/>
+                Um per Telefon Plüschknuddel zu kaufen, rufe hier an <a href="tel:004971191398825">+49 (0) 711 9139 8825</a>.
+            </p>
+        </noscript>
+
+        <div class="products">
+            <ShopItems />
+            <Cart client:only="solid-js"/>
+        </div>
+    </div>
+</Layout>

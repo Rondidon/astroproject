@@ -1,0 +1,22 @@
+{
+    "item0": {
+        "id": 0,
+        "title": "Blauer Plüschknuddel",
+        "description": "Der Babyblau-Knuddel ist ein unwiderstehliches Mitglied der Plüschknuddel-Familie. Mit frechen Augen, fröhlichem Lächeln und weichem Fell. Stabil durch Beans-Füllung und knackige Pobacken. Ein Logo-Fähnchen kennzeichnet ihn als Original.",
+        "image": {
+            "src": "https://www.knuddels.de/shop/plueschknuddel/images/plueschknuddel1.jpg",
+            "alt": "Ein Plüschknuddel in blau"
+        },
+        "price": "29.90"
+    },
+    "item1": {
+        "id": 1,
+        "title": "Gelber Plüschknuddel",
+        "description": "Der sonnige Gelb-Knuddel ist ein charmantes Mitglied der Plüschknuddel-Serie. Mit strahlenden Augen, glücklichem Lächeln und flauschigem Fell. Standfest durch Beans-Füllung und pralle Pobacken. Ein Logo-Fähnchen unterstreicht seine Einzigartigkeit.",
+        "image": {
+            "src": "knuddel_2.jpg",
+            "alt": "Ein Plüschknuddel in gelb"
+        },
+        "price": "29.90"
+    }
+}

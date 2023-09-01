@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/page.astro'
+---
+
+<Layout>
+    <div class="not-found">
+        <h1>404</h1>
+        <img
+            src="https://cdnc.knuddelscom.de/pics/sm_15-cal_robot.gif"
+            alt="ein animierter Roboter, der darauf hinweist, dass die Seite nicht existiert"
+        />
+        <p>Es sieht so aus, als ob die von dir gesuchte Seite nicht existiert.</p>
+        <p><a href="/">&larr; zurück zur Startseite</a></p>
+    </div>
+</Layout>
+
+<style>
+    .not-found {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    .not-found h1 {
+        font-size: 2rem;
+    }
+
+    .not-found img {
+        margin: 1rem 0 0;
+        align-self: center;
+    }
+</style>
