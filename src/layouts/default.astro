@@ -1,9 +1,11 @@
 ---
+import KnuddelsLogo from "../images/logo-knuddels.png";
+import { Image } from "astro:assets";
 import type { NavItem } from "../types";
 const navItems: NavItem[] = [
     {
         path: '/shop',
-        label: 'Plüschknuddel'
+        label: 'Shop'
     },
     {
         path: '/blog',
@@ -34,12 +36,16 @@ const navItems: NavItem[] = [
     <body>
         <header>
             <a href="/" rel="home">
-                <span role="img" aria-label="knuddel">😊</span>
-                Knuddels
+                <Image
+					src={KnuddelsLogo}
+					alt="Knuddels Logo"
+					width={150}
+					height={36}
+				/>
             </a>
             <nav>
                 {navItems.map((item) => {
-                    return <a href={item.path}>{item.label}</a>
+                    return <a class={"header-link"} href={item.path}>{item.label}</a>
                 })}
             </nav>
         </header>
@@ -100,10 +106,10 @@ const navItems: NavItem[] = [
 	}
 
 	.big-link {
-		background-color: var(--color-gray-900);
+		font-family: 'DynaPuff', cursive;
+		background-color: #FCEDF3;
 		border: 0;
 		border-radius: 0.25rem;
-		color: white;
 		display: inline-block;
 		font-size: 1rem;
 		font-weight: 700;
@@ -111,14 +117,15 @@ const navItems: NavItem[] = [
 		padding: 0.5rem 1.25rem;
 		text-decoration: none;
 		transition: 150ms background-color linear;
+		cursor: pointer;
 	}
 
 	.big-link:hover {
-		background-color: var(--color-gray-800);
+		background-color: #c4b4bb;
 	}
 
 	.big-link:is(:active, :focus) {
-		outline: 2px solid var(--color-gray-900);
+		outline: 2px solid #FFFFFF;
 		outline-offset: 4px;
 	}
 </style>
@@ -126,7 +133,7 @@ const navItems: NavItem[] = [
 <style>
 	header {
 		align-items: baseline;
-		background: var(--color-gray-100);
+		background: #28222D;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -147,7 +154,8 @@ const navItems: NavItem[] = [
 	}
 
 	nav a {
-		color: inherit;
+		font-family: 'DynaPuff', cursive;
+		color: #FCEDF3;
 		font-size: 1.25rem;
 		font-weight: 700;
 		text-decoration: none;
@@ -162,7 +170,7 @@ const navItems: NavItem[] = [
 
 		font-size: 0.75rem;
 		padding: 3rem 5% 2rem;
-		background: var(--color-gray-100);
+		background: #28222D;
 	}
 
 	footer p {

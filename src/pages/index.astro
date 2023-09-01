@@ -15,7 +15,9 @@ import ShopItems from '../components/shop-items.astro';
 			<p class="lede">
 				Mach dein zuhause knuddeliger. 
 			</p>
-			<a href="/shop" class="big-link">Jetzt Plüschknuddel kaufen</a>
+			<form> 
+				<button class="big-link" type="submit" formaction="/shop">Plüschknuddel kaufen</button>
+			</form>
 		</div>
 
 		<Image 
@@ -28,9 +30,9 @@ import ShopItems from '../components/shop-items.astro';
 
 	<section class={"block products"}>
 		<ShopItems count={3} addToCart={false}/>
-		<p class="shop-link">
-			<a href="/shop">Jetzt Plüschknuddel einkaufen</a>
-		</p>
+		<form class="shop-link"> 
+			<button class="big-link" type="submit" formaction="/shop">Plüschknuddel kaufen</button>
+		</form>
 	</section>
 </Layout>
 
@@ -46,6 +48,10 @@ import ShopItems from '../components/shop-items.astro';
 .hero :not(.hero-image) {
 	position: relative;
 	z-index: 10;
+}
+
+.pointer {
+	cursor: pointer;
 }
 
 .cta {
